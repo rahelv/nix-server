@@ -50,7 +50,7 @@
     ];
   };
   services.nginx.virtualHosts."${config.domain}" = {
-    enableACME = true;
+    useACMEHost = "pumuckipla.net";
     forceSSL = true;
     locations."/" = {
       proxyPass = "http://127.0.0.1:${toString config.services.homepage-dashboard.listenPort}";

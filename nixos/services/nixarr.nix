@@ -12,11 +12,7 @@
 
     jellyfin = {
       enable = true;
-      expose.https = {
-        enable = true;
-        domainName = "jelly.${config.domain}";
-        acmeMail = config.email;
-      };
+      openFirewall = true;
     };
 
     transmission = {
@@ -34,16 +30,17 @@
     sonarr.enable = true;
     sonarr.openFirewall = true;
   };
-  services.nginx.virtualHosts."prowlarr.${config.domain}" = {
-    enableACME = true;
+
+  services.nginx.virtualHosts."jelly.${config.domain}" = {
+    useACMEHost = "pumuckipla.net";
     forceSSL = true;
     locations."/" = {
-      proxyPass = "http://127.0.0.1:9696";
+      proxyPass = "http://127.0.0.1:8096";
       recommendedProxySettings = true;
     };
   };
   services.nginx.virtualHosts."radarr.${config.domain}" = {
-    enableACME = true;
+    useACMEHost = "pumuckipla.net";
     forceSSL = true;
     locations."/" = {
       proxyPass = "http://127.0.0.1:7878";
@@ -51,21 +48,11 @@
     };
   };
   services.nginx.virtualHosts."sonarr.${config.domain}" = {
-    enableACME = true;
+    useACMEHost = "pumuckipla.net";
     forceSSL = true;
     locations."/" = {
       proxyPass = "http://127.0.0.1:8989";
       recommendedProxySettings = true;
-    };
-  };
-  services.nginx.virtualHosts."transmission.${config.domain}" = {
-    enableACME = true;
-    forceSSL = true;
-    basicAuth = { user = "ephiischdoof"; password = "hehehe"; };
-    locations."/" = {
-      proxyPass = "http://127.0.0.1:9091";
-      recommendedProxySettings = true;
-      proxyWebsockets = true;
     };
   };
 }

@@ -6,7 +6,8 @@
   };
 
   services.nginx.virtualHosts."js.${config.domain}" = {
-    enableACME = true;
+    # enableACME = true;
+    useACMEHost = "pumuckipla.net";
     forceSSL = true;
     locations."/" = {
       proxyPass = "http://127.0.0.1:${toString config.services.jellyseerr.port}";

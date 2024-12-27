@@ -1,5 +1,5 @@
 { config, ... }: {
-  # grafana configuration ♡ 
+  # grafana configuration ♡
   services.grafana = {
     enable = true;
     settings.server = {
@@ -26,7 +26,8 @@
   };
 
   services.nginx.virtualHosts."grafana.${config.domain}" = {
-    enableACME = true;
+    # enableACME = true;
+    useACMEHost = "pumuckipla.net";
     forceSSL = true;
     locations."/" = {
       proxyPass = "http://127.0.0.1:${toString config.services.grafana.port}";

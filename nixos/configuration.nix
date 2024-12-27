@@ -8,6 +8,7 @@
     ./variables.nix
     ./users.nix
     ./services
+    ./sops.nix
   ];
 
   nix =
