@@ -22,7 +22,7 @@
           modules = [
             inputs.disko.nixosModules.disko
             inputs.nixarr.nixosModules.default
-            ./nixos/configuration.nix
+            ./nixos
           ];
         };
       };

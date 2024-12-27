@@ -4,10 +4,7 @@
     (modulesPath + "/profiles/qemu-guest.nix")
     ./disk-config.nix
     ./hardware-configuration.nix
-    ./nginx.nix
-    ./variables.nix
     ./users.nix
-    ./services
     ./sops.nix
   ];
 
