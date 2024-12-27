@@ -6,6 +6,8 @@
     ./hardware-configuration.nix
     ./users.nix
     ./sops.nix
+    ./ssh-server.nix
+    ./networking.nix
   ];
 
   nix =
@@ -42,16 +44,6 @@
   nixpkgs = {
     config = {
       allowUnfree = true;
-    };
-  };
-
-  services.openssh.enable = true;
-
-  networking = {
-    hostName = "hades";
-    firewall = {
-      enable = true;
-      allowedTCPPorts = [ 22 80 81 443 ];
     };
   };
 
