@@ -7,7 +7,7 @@
   sops.secrets."cloudflare/api-key" = { };
   sops.templates."cloudflare.env".content = ''
     CLOUDFLARE_EMAIL=${config.email}
-    CLOUDFLARE_API_KEY=${config.sops.placeholder."cloudflare/api-key"}
+    CLOUDFLARE_DNS_API_TOKEN=${config.sops.placeholder."cloudflare/api-key"}
   '';
 
   security.acme = {
