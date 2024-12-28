@@ -12,14 +12,13 @@
 
   security.acme = {
     acceptTerms = true;
-    # preliminarySelfsigned = false;
     defaults.email = config.email;
-    certs."pumuckipla.net" = {
+    certs."${config.domain}" = {
       dnsProvider = "cloudflare";
       environmentFile = config.sops.templates."cloudflare.env".path;
       group = "nginx";
-      domain = "pumuckipla.net";
-      extraDomainNames = [ "*.pumuckipla.net" ];
+      domain = config.domain;
+      extraDomainNames = [ "*.${config.domain}" ];
       reloadServices = [ "nginx" ];
     };
   };

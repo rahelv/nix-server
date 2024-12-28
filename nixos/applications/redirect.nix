@@ -5,8 +5,7 @@
     recommendedTlsSettings = true;
     virtualHosts = {
       "notfound.${config.domain}" = {
-        # enableACME = true;
-        useACMEHost = "pumuckipla.net";
+        useACMEHost = config.domain;
         forceSSL = true;
         root = ./notfound;
       };

@@ -32,15 +32,23 @@
   };
 
   services.nginx.virtualHosts."jelly.${config.domain}" = {
-    useACMEHost = "pumuckipla.net";
+    useACMEHost = config.domain;
     forceSSL = true;
     locations."/" = {
       proxyPass = "http://127.0.0.1:8096";
       recommendedProxySettings = true;
     };
   };
+  services.nginx.virtualHosts."prowlarr.${config.domain}" = {
+    useACMEHost = config.domain;
+    forceSSL = true;
+    locations."/" = {
+      proxyPass = "http://127.0.0.1:9696";
+      recommendedProxySettings = true;
+    };
+  };
   services.nginx.virtualHosts."radarr.${config.domain}" = {
-    useACMEHost = "pumuckipla.net";
+    useACMEHost = config.domain;
     forceSSL = true;
     locations."/" = {
       proxyPass = "http://127.0.0.1:7878";
@@ -48,7 +56,7 @@
     };
   };
   services.nginx.virtualHosts."sonarr.${config.domain}" = {
-    useACMEHost = "pumuckipla.net";
+    useACMEHost = config.domain;
     forceSSL = true;
     locations."/" = {
       proxyPass = "http://127.0.0.1:8989";
