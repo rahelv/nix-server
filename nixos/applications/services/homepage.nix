@@ -20,9 +20,21 @@
               };
             }
             {
+              "Jellyseerr" = {
+                href = "https://js.${config.domain}";
+                icon = "jellyseerr";
+              };
+            }
+            {
               "Radarr" = {
                 href = "https://radarr.${config.domain}";
                 icon = "radarr";
+              };
+            }
+            {
+              "Sonarr" = {
+                href = "https://sonarr.${config.domain}";
+                icon = "sonarr";
               };
             }
             {
