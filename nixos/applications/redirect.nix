@@ -1,22 +1,15 @@
 { config, ... }: {
-  services.nginx = {
-    enable = true;
-    recommendedProxySettings = true;
-    recommendedTlsSettings = true;
-    virtualHosts = {
-      "notfound.${config.domain}" = {
-        useACMEHost = config.domain;
-        forceSSL = true;
-        root = ./notfound;
-      };
-      "_" = {
-        globalRedirect = "notfound.${config.domain}";
-      };
-    };
-  };
-
   # Redirections to zeus server
   services.nginx.virtualHosts = {
+    "notfound.${config.domain}" = {
+      useACMEHost = config.domain;
+      forceSSL = true;
+      root = ./notfound;
+    };
+    "_" = {
+      globalRedirect = "notfound.${config.domain}";
+    };
+
     "grafana.qew.ch" = {
       enableACME = true;
       locations."/" = {

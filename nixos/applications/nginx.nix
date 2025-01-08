@@ -1,9 +1,16 @@
-{ config, ... }: {
+{ pkgs, config, ... }: {
   imports = [
     ./redirect.nix
     ./variables.nix
     ./services
   ];
+
+  services.nginx = {
+    enable = true;
+    recommendedProxySettings = true;
+    recommendedTlsSettings = true;
+  };
+
   sops.secrets."cloudflare/api-key" = { };
   sops.templates."cloudflare.env".content = ''
     CLOUDFLARE_EMAIL=${config.email}
