@@ -11,23 +11,7 @@
     };
 
     # redirections to another server in the local network
-    "grafana.qew.ch" = {
-      enableACME = true;
-      locations."/" = {
-        proxyPass = "http://zeus:80";
-        recommendedProxySettings = true;
-      };
-    };
-    "vw.qew.ch" = {
-      enableACME = true;
-      # forceSSL = true;
-      locations."/" = {
-        proxyPass = "http://zeus:80";
-        recommendedProxySettings = true;
-      };
-    };
-    "cloud.qew.ch" = {
-      enableACME = true;
+    "*.qew.ch" = {
       locations."/" = {
         proxyPass = "http://zeus:80";
         recommendedProxySettings = true;
