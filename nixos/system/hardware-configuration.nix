@@ -23,4 +23,9 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  fileSystems."/data" = {
+    device = "/dev/disk/by-uuid/f7925732-cc56-45f3-b1fc-df45b56565e5";
+    fsType = "ext4";
+  };
 }
