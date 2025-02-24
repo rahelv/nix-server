@@ -7,5 +7,6 @@
     ./jellyseerr.nix
     ./adguardhome.nix
     # ./plik.nix
+    ./mealie.nix
   ];
 }
