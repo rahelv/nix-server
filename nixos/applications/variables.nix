@@ -6,7 +6,7 @@
     email = mkOption { type = str; };
   };
   config = {
-    domain = "pumuckipla.net";
+    domain = "r5v.ch";
     dataDir = "/data";
     email = "rahelkempf@gmx.ch";
   };
